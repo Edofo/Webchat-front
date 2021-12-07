@@ -1,0 +1,11 @@
+.sidebar {
+    display: flex;
+    .title {
+        color: var(--main-blue);
+        font: normal normal 600 18px/20px 'Montserrat';
+    }
+    .subtitle {
+        font: normal normal 400 13px/20px 'Montserrat';
+        color: var(--main-gray);
+    }
+}

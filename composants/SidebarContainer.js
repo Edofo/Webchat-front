@@ -1,13 +1,15 @@
 import ChatCard from "./ChatCard"
 
+import styles from '../styles/Sidebar.module.scss'
+
 const SidebarContainer = () => {
     return (
-        <div>
+        <div className={styles.sidebar}>
             <div>
                 {/*IMAGE*/}
                 <div>
-                    <p className="blueText">LEBOUCHER Nolan</p>
-                    <p className="subTitle">Developpeur FullStack</p>
+                    <p className={styles.title}>LEBOUCHER Nolan</p>
+                    <p className={styles.subtitle}>Developpeur FullStack</p>
                 </div>
                 {/*EDIT*/}
             </div>
