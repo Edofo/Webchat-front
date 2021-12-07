@@ -1,6 +1,10 @@
+import { useState } from 'react'
 import styles from '../styles/ChatContainer.module.scss'
+import WebcamContainer from './Webcam'
 
 const ChatContainer = () => {
+    const [DisplayCam, setCam] = useState(false)
+
     return (
         <div className={styles.chatContainer}>
             <div className={styles.chatContainerHeader}>
@@ -63,9 +67,13 @@ const ChatContainer = () => {
                 </div>
             </div>
 
+            {
+                DisplayCam && <WebcamContainer />
+            }
+
             <div className={styles.chatContainerSend}>
                 <i className="fad fa-paperclip"></i>
-                <i className="fad fa-camera-alt"></i>
+                <i onClick={() => setCam(true)} className="fad fa-camera-alt"></i>
                 <i className="fad fa-smile-wink"></i>
                 <input placeholder="Salut, ça va ?" type="text"/>
                 <i className="fad fa-arrow-circle-right"></i>

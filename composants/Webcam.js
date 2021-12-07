@@ -1,9 +1,12 @@
+import { useCallback, useRef } from "react";
 import Webcam from "react-webcam";
 
-const Webcam = () => {
-    const webcamRef = React.useRef(null);
+import styles from '../styles/Webcam.module.scss'
 
-    const capture = React.useCallback(
+const WebcamContainer = () => {
+    const webcamRef = useRef(null);
+
+    const capture = useCallback(
         () => {
         const imageSrc = webcamRef.current.getScreenshot();
         console.log(imageSrc)
@@ -18,7 +21,7 @@ const Webcam = () => {
     };
 
     return (
-        <div>
+        <div className={styles.Webcam}>
             <Webcam 
                 audio={false}
                 height={720}
@@ -32,4 +35,4 @@ const Webcam = () => {
     )
 }
 
-export default Webcam
+export default WebcamContainer
