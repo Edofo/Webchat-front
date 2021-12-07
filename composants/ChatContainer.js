@@ -18,8 +18,49 @@ const ChatContainer = () => {
                 </div>
             </div>
 
-            <div>
-                
+            <div className={styles.chatContainerMsg}>
+
+                <div className={styles.msg}>
+                    <div className={styles.date}>
+                        <hr />
+                        <p>Hier</p>
+                        <hr/>
+                    </div>
+                    <p className={styles.left}>Salut mec</p>
+                    <p className={styles.left}>Salut mec</p>
+                    <p className={styles.left}>Salut mec</p>
+                    <p className={styles.left}>Salut mec</p>
+                    <p className={styles.right}>ça va ?</p>
+                    <p className={styles.right}>ça va ?</p>
+                    <p className={styles.right}>ça va ?</p>
+                    <p className={styles.right}>ça va ?</p>
+                    <p className={styles.right}>ça va ?</p>
+                    <p className={styles.right}>ça va ?</p>
+                    <p className={styles.right}>ça va ?</p>
+                    <p className={styles.right}>ça va ?</p>
+                    <p className={styles.right}>ça va ?</p>
+                </div>
+
+                <div className={styles.msg}>
+                    <div className={styles.date}>
+                        <hr />
+                        <p>Aujourd'hui</p>
+                        <hr/>
+                    </div>
+                    <p className={styles.left}>Salut mec</p>
+                    <p className={styles.left}>Salut mec</p>
+                    <p className={styles.left}>Salut mec</p>
+                    <p className={styles.left}>Salut mec</p>
+                    <p className={styles.right}>ça va ?</p>
+                    <p className={styles.right}>ça va ?</p>
+                    <p className={styles.right}>ça va ?</p>
+                    <p className={styles.right}>ça va ?</p>
+                    <p className={styles.right}>ça va ?</p>
+                    <p className={styles.right}>ça va ?</p>
+                    <p className={styles.right}>ça va ?</p>
+                    <p className={styles.right}>ça va ?</p>
+                    <p className={styles.right}>ça va ?</p>
+                </div>
             </div>
 
             <div className={styles.chatContainerSend}>

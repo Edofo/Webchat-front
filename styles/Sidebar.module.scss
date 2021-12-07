@@ -62,7 +62,7 @@
     }
 
     .chatCardList {
-        overflow-y: overlay;
+        overflow-y: auto;
         clear:both;
         display: flex;
         flex-direction: column;
@@ -70,10 +70,18 @@
         .chatCard {
             display: flex;
             align-items: flex-end;
-            margin: 15px 0;
+            margin: 5px 0;
             padding: 20px 10px;
-            cursor: pointer;
-         
+            cursor: pointer; 
+            box-shadow: 0 4px 2px var(--main-gray);   
+            transition-duration: 0.2s; 
+            
+            &:hover {
+                background-color: var(--main-blue);
+                .title {
+                    color: white;
+                }
+            }
 
             img {
                 margin-right: 10px;
