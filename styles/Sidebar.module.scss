@@ -1,11 +1,92 @@
 .sidebar {
     display: flex;
-    .title {
-        color: var(--main-blue);
-        font: normal normal 600 18px/20px 'Montserrat';
+    flex-direction: column;
+    background-color: var(--main-light-gray);
+    width: 30vw;
+    height: 100vh;
+    z-index: 10;
+
+    .sidebarHeader {
+        padding-top: 10px;
+        background-color: var(--main-light-gray);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        box-shadow: 0 4px 2px -2px var(--main-gray);
+
+        .profil {
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            padding: 0 10px;
+    
+            img {
+                border-radius: 50%;
+                margin-right: 5px;
+            }
+    
+            .title {
+                color: var(--main-blue);
+                font: normal normal 600 18px/20px 'Montserrat';
+            }
+            .subtitle {
+                font: normal normal 400 13px/20px 'Montserrat';
+                color: var(--main-gray);
+            }
+        
+            i {
+                position: absolute;
+                right: 15px;
+                align-self: center;
+                justify-content: flex-end;
+                color: var(--main-blue);
+            }
+        }
+    
+        hr {
+            background-color: var(--main-blue);
+            height: 3px;
+            margin: 25px 0;
+            align-self: center;
+            width: 80%;
+            border-radius: 5px;
+            border: none;
+        }
+    
+        input {
+            padding: 5px 15px;
+            border-radius: 5px;
+            border: none;
+            margin: 0 15px 15px 15px;
+        }
     }
-    .subtitle {
-        font: normal normal 400 13px/20px 'Montserrat';
-        color: var(--main-gray);
+
+    .chatCardList {
+        overflow-y: overlay;
+        clear:both;
+        display: flex;
+        flex-direction: column;
+
+        .chatCard {
+            display: flex;
+            align-items: flex-end;
+            margin: 15px 0;
+            padding: 20px 10px;
+            cursor: pointer;
+         
+
+            img {
+                margin-right: 10px;
+            }
+
+            .title {
+                color: var(--main-blue);
+                font: normal normal 600 16px/20px 'Montserrat';
+            }
+            .subtitle {
+                font: normal normal 400 11px/15px 'Montserrat';
+                color: var(--main-gray);
+            }
+        }
     }
 }

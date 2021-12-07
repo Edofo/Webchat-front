@@ -1,0 +1,82 @@
+.chatContainer {
+    background-image: url('https://latavernedudesign.fr/static/media/second.49f65763.png');
+    background-repeat: repeat;
+    background-size: 100%;
+    width: 70vw;
+    position: relative;
+
+    .chatContainerHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        padding: 10px ;
+        box-shadow: 0 4px 2px -2px var(--main-gray);
+
+        .profil {
+            display: flex;
+            align-items: center;
+            
+
+            img {
+                margin-right: 10px;
+                border-radius: 50%;
+            }
+
+            div {
+                .title {
+                    color: var(--main-blue);
+                    font: normal normal 600 18px/20px 'Montserrat';
+                }
+                .subtitle {
+                    font: normal normal 400 13px/20px 'Montserrat';
+                    color: var(--main-gray);
+                }
+            }
+        }
+
+        .action {
+            i {
+                color: var(--main-gray);
+                margin: 0 5px;
+                font-size: 20px;
+                cursor: pointer;
+
+                &:hover {
+                    color: var(--main-blue);
+                }
+            }
+        }
+    }
+
+    .chatContainerSend {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: white;
+        padding: 15px;
+        box-shadow: 0 4px 2px 6px var(--main-gray);
+
+        input {
+            padding: 15px;
+            width: 50%;
+            border-radius: 5px;
+            border: none;
+            background-color: var(--main-light-gray);
+        }
+
+        i {
+            color: var(--main-gray);
+            margin: 0 7px;
+            font-size: 25px;
+            cursor: pointer;
+
+            &:hover {
+                color: var(--main-blue);
+            }
+        }
+    }
+}
