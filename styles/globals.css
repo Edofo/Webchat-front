@@ -2,6 +2,7 @@
 
 #root {
   --main-blue: #264A6E;
+  --main-light-gray: #eeeeee;
 }
 
 html,
@@ -26,4 +27,13 @@ a {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.blueText {
+  color: #264A6E;
+}
+
+.subTitle {
+  font: normal normal 400 15px/20px 'Montserrat';
+  color: var(--main-light-gray);
 }

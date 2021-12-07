@@ -6,8 +6,8 @@ const SidebarContainer = () => {
             <div>
                 {/*IMAGE*/}
                 <div>
-                    {/*NOM PRENOM*/}
-                    {/*STATUS*/}
+                    <p className="blueText">LEBOUCHER Nolan</p>
+                    <p className="subTitle">Developpeur FullStack</p>
                 </div>
                 {/*EDIT*/}
             </div>
