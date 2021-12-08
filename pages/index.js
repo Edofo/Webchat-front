@@ -1,8 +1,6 @@
 import { useSession, signIn, signOut } from "next-auth/react"
 
-import ChatContainer from '../composants/ChatContainer'
-import ProfilContainer from '../composants/ProfilContainer'
-import SidebarContainer from '../composants/SidebarContainer'
+import HomeContainer from "../composants/HomeContainer"
 
 import styles from '../styles/Home.module.scss'
 
@@ -12,17 +10,11 @@ export default function Home() {
     return (
         <div className={styles.homeContainer}>
 
-            <button onClick={() => signOut()}>Sign out</button>
+            {/* <button onClick={() => signOut()}>Sign out</button> */}
 
             {
                 session ?
-                    <>
-                        <SidebarContainer userData={session} />
-
-                        <ChatContainer />
-
-                        <ProfilContainer />
-                    </>
+                    <HomeContainer session={session} />
                 :
                 <>
                     Not signed in <br />

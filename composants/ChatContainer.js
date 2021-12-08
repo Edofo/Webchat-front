@@ -1,9 +1,37 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from '../styles/ChatContainer.module.scss'
 import WebcamContainer from './Webcam'
 
-const ChatContainer = () => {
+const ChatContainer = (props) => {
+    
     const [DisplayCam, setCam] = useState(false)
+    const [msgList, setMsgList] = useState([])
+    const test = 0
+
+    useEffect(() => {
+        console.log(props.socket)
+        
+    }, [props.socket])
+
+    if(props.socket !== undefined) {
+        props.socket.on("chat message", (data) => {
+            const tab = [...msgList]
+            tab.push({ user: data.nick, message: data.message })
+            setMsgList(tab)
+            console.log(msgList)
+        });
+    }
+
+    const addNewMessage = () => {
+        const inputField = document.querySelector('#input-send-msg')
+
+        props.socket.emit("chat message", {
+            message: inputField.value,
+            nick: props.userData.user.email,
+        });
+    }                    
+
+    console.log(msgList.length)
 
     return (
         <div className={styles.chatContainer}>
@@ -52,19 +80,20 @@ const ChatContainer = () => {
                         <p>Aujourd'hui</p>
                         <hr/>
                     </div>
-                    <p className={styles.left}>Salut mec</p>
-                    <p className={styles.left}>Salut malut mecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecme cmecme cmecmecmecmecm ecmecmecme cmecmecmecmecmecm ecmeec</p>
-                    <p className={styles.left}>Salut mec</p>
-                    <p className={styles.left}>Salut mec</p>
-                    <p className={styles.right}>ça va ?</p>
-                    <p className={styles.right}>ça vaalut mecmecmecme cmecme cmecmecmecmecm ecmecmecme cmecmecmecmecmecm ecme ?</p>
-                    <p className={styles.right}>ça va ?</p>
-                    <p className={styles.right}>ça va ?</p>
-                    <p className={styles.right}>ça alut mecmecmecme cmecme cmecmecmecmecm ecmecmecme cmecmecmecmecmecm ecmeva ?</p>
-                    <p className={styles.right}>ça va ?</p>
-                    <p className={styles.right}>ça alut mecmecmecme cmecme cmecmecmecmecm ecmecmecme cmecmecmecmecmecm ecmeva ?</p>
-                    <p className={styles.right}>ça va ?</p>
-                    <p className={styles.right}>ça va ?</p>
+                    {   
+                        msgList.length >= 1 ?
+
+                            msgList.map((x) => {
+                                console.log(x.message)
+                                return (
+                                    
+                                    <p className={x.user === props.userData.user.email ? styles.right : styles.left}>{x.message}</p>
+                                    
+                                )
+                            })
+                        :
+                            <p>ECRIRE SON PREMIER MESSAGE</p>
+                    }
                 </div>
             </div>
 
@@ -76,8 +105,8 @@ const ChatContainer = () => {
                 <i className="fad fa-paperclip"></i>
                 <i onClick={() => setCam(true)} className="fad fa-camera-alt"></i>
                 <i className="fad fa-smile-wink"></i>
-                <textarea placeholder="Salut, ça va ?" type="text"/>
-                <i className="fad fa-arrow-circle-right"></i>
+                <textarea id="input-send-msg" placeholder="Salut, ça va ?" type="text"/>
+                <i onClick={() => addNewMessage()} className="fad fa-arrow-circle-right"></i>
             </div>
 
         </div>
