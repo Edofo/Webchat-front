@@ -12,10 +12,12 @@ export default function Home() {
     return (
         <div className={styles.homeContainer}>
 
+            <button onClick={() => signOut()}>Sign out</button>
+
             {
                 session ?
                     <>
-                        <SidebarContainer />
+                        <SidebarContainer userData={session} />
 
                         <ChatContainer />
 
