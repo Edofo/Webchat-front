@@ -40,6 +40,7 @@ const ChatContainer = () => {
                     <p className={styles.right}>ça va ?</p>
                     <p className={styles.right}>ça va ?</p>
                     <p className={styles.right}>ça va ?</p>
+                    <p className={styles.left}>Salut mecmecmecme cmecme cmecmecmecmecm ecmecmecme cmecmecmecmecmecm ecmecmecmecme cmecmecmecmecmecmec mecmecmecmecmec mecmecmec</p>
                     <p className={styles.right}>ça va ?</p>
                     <p className={styles.right}>ça va ?</p>
                     <p className={styles.right}>ça va ?</p>
@@ -52,16 +53,16 @@ const ChatContainer = () => {
                         <hr/>
                     </div>
                     <p className={styles.left}>Salut mec</p>
+                    <p className={styles.left}>Salut malut mecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecmemecmecmecme cmecme cmecmecmecmecm ecmecmecme cmecmecmecmecmecm ecmeec</p>
                     <p className={styles.left}>Salut mec</p>
                     <p className={styles.left}>Salut mec</p>
-                    <p className={styles.left}>Salut mec</p>
+                    <p className={styles.right}>ça va ?</p>
+                    <p className={styles.right}>ça vaalut mecmecmecme cmecme cmecmecmecmecm ecmecmecme cmecmecmecmecmecm ecme ?</p>
                     <p className={styles.right}>ça va ?</p>
                     <p className={styles.right}>ça va ?</p>
+                    <p className={styles.right}>ça alut mecmecmecme cmecme cmecmecmecmecm ecmecmecme cmecmecmecmecmecm ecmeva ?</p>
                     <p className={styles.right}>ça va ?</p>
-                    <p className={styles.right}>ça va ?</p>
-                    <p className={styles.right}>ça va ?</p>
-                    <p className={styles.right}>ça va ?</p>
-                    <p className={styles.right}>ça va ?</p>
+                    <p className={styles.right}>ça alut mecmecmecme cmecme cmecmecmecmecm ecmecmecme cmecmecmecmecmecm ecmeva ?</p>
                     <p className={styles.right}>ça va ?</p>
                     <p className={styles.right}>ça va ?</p>
                 </div>
@@ -75,7 +76,7 @@ const ChatContainer = () => {
                 <i className="fad fa-paperclip"></i>
                 <i onClick={() => setCam(true)} className="fad fa-camera-alt"></i>
                 <i className="fad fa-smile-wink"></i>
-                <input placeholder="Salut, ça va ?" type="text"/>
+                <textarea placeholder="Salut, ça va ?" type="text"/>
                 <i className="fad fa-arrow-circle-right"></i>
             </div>
 

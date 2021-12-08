@@ -5,6 +5,7 @@
     width: 30vw;
     height: 100vh;
     z-index: 10;
+    transition-duration: 0.5s;
 
     .sidebarHeader {
         padding-top: 10px;
@@ -73,7 +74,6 @@
             margin: 5px 0;
             padding: 20px 10px;
             cursor: pointer; 
-            box-shadow: 0 4px 2px var(--main-gray);   
             transition-duration: 0.2s; 
             
             &:hover {
@@ -94,6 +94,32 @@
             .subtitle {
                 font: normal normal 400 11px/15px 'Montserrat';
                 color: var(--main-gray);
+            }
+        }
+    }
+    .arrow {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .sidebar {
+        position: absolute;
+        max-width: 500px;
+        width: 75vw;
+
+        .arrow {
+            display: block;
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--main-blue);
+            padding: 15px 18px;
+            border-radius: 50%;
+
+            i {
+                color: white;
             }
         }
     }
