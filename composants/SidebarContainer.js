@@ -1,11 +1,38 @@
 import ChatCard from "./ChatCard"
 
 import styles from '../styles/Sidebar.module.scss'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const SidebarContainer = (props) => {
 
     const [DisplaySidebar, setSidebar] = useState(true)
+    const [searchList, setSearchList] = useState([])
+
+    useEffect(() => {
+        searchUser()
+    }, [])
+
+    const searchUser = async() => {
+        try {
+
+            const value = document.querySelector('#input-search-user').value
+
+            fetch('http://localhost:4000/search-user', {
+                method: 'POST',
+                headers: {
+                    "content-type" : "application/json"
+                },
+                body: JSON.stringify({
+                    search: value
+                })
+            })
+            .then(response => response.json())
+            .then(data => setSearchList(data))
+
+        } catch(err) {
+            throw err
+        }
+    }
 
     return (
         <div style={DisplaySidebar ? {} : {transform: 'translateX(-100%)'}} className={styles.sidebar}>
@@ -19,19 +46,17 @@ const SidebarContainer = (props) => {
                     <i className="fad fa-pencil-alt"></i>
                 </div>
                 <hr />
-                <input placeholder="Rechercher..." />
+                <input onChange={() => searchUser()} id="input-search-user" type="text" placeholder="Rechercher..." />
             </div>
             <div className={styles.chatCardList}>
-                <ChatCard />
-                <ChatCard />
-                <ChatCard />
-                <ChatCard />
-                <ChatCard />
-                <ChatCard />
-                <ChatCard />
-                <ChatCard />
-                <ChatCard />
-                <ChatCard />
+                {
+                    searchList.length >= 1 &&
+                    searchList.map((x) => {
+                        return (
+                            <ChatCard socket={props.socket} setRoomSelected={props.setRoomSelected} userInfos={x} userData={props.userData}/>
+                        )
+                    })
+                }
             </div>
             <div className={styles.arrow}>
                 {

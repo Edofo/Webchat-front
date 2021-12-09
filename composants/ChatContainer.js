@@ -6,32 +6,24 @@ const ChatContainer = (props) => {
     
     const [DisplayCam, setCam] = useState(false)
     const [msgList, setMsgList] = useState([])
-    const test = 0
-
-    useEffect(() => {
-        console.log(props.socket)
-        
-    }, [props.socket])
 
     if(props.socket !== undefined) {
-        props.socket.on("chat message", (data) => {
+        props.socket.on("room::message::receive", (data) => {
             const tab = [...msgList]
             tab.push({ user: data.nick, message: data.message })
             setMsgList(tab)
-            console.log(msgList)
         });
     }
 
     const addNewMessage = () => {
         const inputField = document.querySelector('#input-send-msg')
 
-        props.socket.emit("chat message", {
-            message: inputField.value,
+        props.socket.emit("room::message::send", {
+            room: props.roomSelected,
             nick: props.userData.user.email,
+            message: inputField.value,
         });
     }                    
-
-    console.log(msgList.length)
 
     return (
         <div className={styles.chatContainer}>
@@ -84,7 +76,6 @@ const ChatContainer = (props) => {
                         msgList.length >= 1 ?
 
                             msgList.map((x) => {
-                                console.log(x.message)
                                 return (
                                     
                                     <p className={x.user === props.userData.user.email ? styles.right : styles.left}>{x.message}</p>
@@ -105,7 +96,7 @@ const ChatContainer = (props) => {
                 <i className="fad fa-paperclip"></i>
                 <i onClick={() => setCam(true)} className="fad fa-camera-alt"></i>
                 <i className="fad fa-smile-wink"></i>
-                <textarea id="input-send-msg" placeholder="Salut, ça va ?" type="text"/>
+                <textarea onKeyDown={(e) => e.key === 'Enter' && addNewMessage()} id="input-send-msg" placeholder="Salut, ça va ?" type="text"/>
                 <i onClick={() => addNewMessage()} className="fad fa-arrow-circle-right"></i>
             </div>
 

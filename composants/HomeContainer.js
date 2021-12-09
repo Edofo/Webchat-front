@@ -8,11 +8,12 @@ import ChatContainer from '../composants/ChatContainer'
 const HomeContainer = (props) => {
 
     const [socketId, setSocketId] = useState()
+    const [roomSelected, setRoomSelected] = useState()
 
     useEffect(() => {
         const socket = io("ws://localhost:4242");
         setSocketId(socket)
-        socket.emit('login', {email: props.session.user.email});
+        socket.emit('login', props.session.user);
 
         socket.on("new_msg", (data) => {
             alert(data.msg);
@@ -21,9 +22,9 @@ const HomeContainer = (props) => {
 
     return (
         <>
-            <SidebarContainer userData={props.session} />
+            <SidebarContainer setRoomSelected={setRoomSelected} userData={props.session} socket={socketId} />
 
-            <ChatContainer userData={props.session} socket={socketId} />
+            <ChatContainer roomSelected={roomSelected} userData={props.session} socket={socketId} />
 
             <ProfilContainer />
         </>
