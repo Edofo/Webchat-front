@@ -3,13 +3,13 @@ import Webcam from "react-webcam";
 
 import styles from '../styles/Webcam.module.scss'
 
-const WebcamContainer = () => {
+const WebcamContainer = (props) => {
     const webcamRef = useRef(null);
 
     const capture = useCallback(
         () => {
         const imageSrc = webcamRef.current.getScreenshot();
-        console.log(imageSrc)
+        props.addPhoto(imageSrc)
         },
         [webcamRef]
     );
@@ -22,9 +22,9 @@ const WebcamContainer = () => {
 
     return (
         <div className={styles.Webcam}>
+            <p>Prends ta meilleure photo ;)</p>
             <Webcam 
                 audio={false}
-                height={720}
                 ref={webcamRef}
                 screenshotFormat="image/jpeg"
                 width={1280}

@@ -52,3 +52,21 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--main-blue-dark);
 }
+
+.modal-box-shadow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.emoji-mart {
+  position: absolute;
+  bottom: 65px;
+  left: 25%;
+  transform: translate(-50%);
+  z-index: 11;
+}

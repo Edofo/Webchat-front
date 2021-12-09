@@ -9,22 +9,21 @@ const HomeContainer = (props) => {
 
     const [socketId, setSocketId] = useState()
     const [roomSelected, setRoomSelected] = useState()
+    const [userInfos, setUserInfos] = useState({})
 
     useEffect(() => {
         const socket = io("ws://localhost:4242");
         setSocketId(socket)
         socket.emit('login', props.session.user);
-
-        socket.on("new_msg", (data) => {
-            alert(data.msg);
-        })
     }, [])
 
     return (
         <>
-            <SidebarContainer setRoomSelected={setRoomSelected} userData={props.session} socket={socketId} />
+            <SidebarContainer setUserInfos={setUserInfos} setRoomSelected={setRoomSelected} userData={props.session} socket={socketId} />
 
-            <ChatContainer roomSelected={roomSelected} userData={props.session} socket={socketId} />
+            {
+                userInfos.id !== undefined && <ChatContainer userInfos={userInfos} roomSelected={roomSelected} userData={props.session} socket={socketId} />
+            }
 
             <ProfilContainer />
         </>

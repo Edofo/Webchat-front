@@ -1,6 +1,7 @@
-import { useSession, signIn, signOut } from "next-auth/react"
+import { useSession } from "next-auth/react"
 
 import HomeContainer from "../composants/HomeContainer"
+import LoginContainer from "../composants/LoginContainer"
 
 import styles from '../styles/Home.module.scss'
 
@@ -10,16 +11,11 @@ export default function Home() {
     return (
         <div className={styles.homeContainer}>
 
-            {/* <button onClick={() => signOut()}>Sign out</button> */}
-
             {
                 session ?
                     <HomeContainer session={session} />
                 :
-                <>
-                    Not signed in <br />
-                    <button onClick={() => signIn()}>Sign in</button>
-                </>
+                    <LoginContainer />
             }
 
         </div>

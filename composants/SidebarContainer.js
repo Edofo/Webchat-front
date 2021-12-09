@@ -1,7 +1,9 @@
+import { useEffect, useState } from "react"
+import { signOut } from "next-auth/react"
+
 import ChatCard from "./ChatCard"
 
 import styles from '../styles/Sidebar.module.scss'
-import { useEffect, useState } from "react"
 
 const SidebarContainer = (props) => {
 
@@ -23,7 +25,8 @@ const SidebarContainer = (props) => {
                     "content-type" : "application/json"
                 },
                 body: JSON.stringify({
-                    search: value
+                    search: value,
+                    emailUser: props.userData.user.email
                 })
             })
             .then(response => response.json())
@@ -43,7 +46,7 @@ const SidebarContainer = (props) => {
                         <p className={styles.title}>{props.userData.user.name}</p>
                         <p className={styles.subtitle}>Developpeur FullStack</p>
                     </div>
-                    <i className="fad fa-pencil-alt"></i>
+                    <i onClick={() => signOut()} className="fad fa-pencil-alt"></i>
                 </div>
                 <hr />
                 <input onChange={() => searchUser()} id="input-search-user" type="text" placeholder="Rechercher..." />
@@ -51,9 +54,9 @@ const SidebarContainer = (props) => {
             <div className={styles.chatCardList}>
                 {
                     searchList.length >= 1 &&
-                    searchList.map((x) => {
+                    searchList.map((x, i) => {
                         return (
-                            <ChatCard socket={props.socket} setRoomSelected={props.setRoomSelected} userInfos={x} userData={props.userData}/>
+                            <ChatCard key={i} socket={props.socket} setRoomSelected={props.setRoomSelected} userInfos={x} setUserInfos={props.setUserInfos} userData={props.userData}/>
                         )
                     })
                 }
