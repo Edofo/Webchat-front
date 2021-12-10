@@ -8,7 +8,7 @@
   </a>
 </p>
 
-<iframe src="https://media4.giphy.com/media/s2Qvrs9q56N2BWVvTg/giphy.gif" width="480" height="270" frameBorder="0" allowFullScreen />
+<iframe src="https://media4.giphy.com/media/s2Qvrs9q56N2BWVvTg/giphy.gif" width="480" height="270" frameBorder="0" />
 
 ## Introduction
 
