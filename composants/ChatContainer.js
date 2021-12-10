@@ -37,6 +37,10 @@ const ChatContainer = (props) => {
     const addNewMessage = () => {
         const inputField = document.querySelector('#input-send-msg')
 
+        if(inputField.value.length === 0 ) {
+            return
+        }
+
         props.socket.emit("room::message::send", {
             room: props.roomSelected,
             nick: props.userData.user.email,
@@ -98,8 +102,7 @@ const ChatContainer = (props) => {
                             msgList.length >= 1 ?
 
                                 msgList.map((x, i) => {
-                                    console.log(x)
-        
+       
                                     return (
                                         <>
                                             {
