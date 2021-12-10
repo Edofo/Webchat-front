@@ -1,0 +1,52 @@
+.login {
+    background-image: url('https://latavernedudesign.fr/static/media/second.49f65763.png');
+    background-repeat: repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    overflow:hidden;
+    position: relative;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        border: 2px solid var(--main-blue);
+        border-radius: 5px;
+        box-shadow: 5px 5px 5px var(--main-gray);
+        padding: 15px;
+        width: 90vw;
+        max-width: 500px;
+
+        h1 {
+            color: var(--main-blue);
+            margin: 0 0 15px 0;
+            text-align: center;
+        }
+
+        p {
+            margin: 15px 0;
+        }
+
+        button {
+            background-color: var(--main-light-gray);
+            border-radius: 5px;
+            border: none;
+            padding: 10px 0;
+            width: 50%;
+            cursor: pointer;
+            transition-duration: 0.2s;
+            margin: 15px 0 0 0;
+
+            &:hover {
+                background-color: var(--main-blue);
+                color: white;
+            }
+        }
+    }
+}
