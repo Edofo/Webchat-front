@@ -8,6 +8,8 @@
   </a>
 </p>
 
+<iframe src="https://giphy.com/embed/s2Qvrs9q56N2BWVvTg" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
 ## Introduction
 
 > This webchat made with Next and Scoketio.
